@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>❤️ Chúc Mừng Sinh Nhật Vợ Yêu ❤️</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS cho toàn bộ trang */
+      body {
+        margin: 0;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #f3929e,
+          #ff6b81
+        ); /* Nền màu hồng lãng mạn */
+        font-family: "Dancing Script", cursive; /* Font chữ mềm mại */
+        color: #fff;
+        overflow-x: hidden; /* Chỉ ẩn thanh cuộn ngang */
+        overflow-y: auto; /* Cho phép cuộn dọc */
+        position: relative;
+      }
+
+      /* Background Slideshow */
+      .bg-slideshow {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .bg-row {
+        flex: 1;
+        display: flex;
+        gap: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .bg-row-top {
+        animation: scrollLeft 40s linear infinite;
+      }
+
+      .bg-row-bottom {
+        animation: scrollRight 40s linear infinite;
+      }
+
+      .bg-slide {
+        min-width: calc(33.333% - 7px);
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 15px;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .bg-slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(243, 146, 158, 0.75),
+          rgba(255, 107, 129, 0.75)
+        );
+        backdrop-filter: blur(2px);
+        border-radius: 15px;
+      }
+
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-25% - 2.5px));
+        }
+      }
+
+      @keyframes scrollRight {
+        0% {
+          transform: translateX(calc(-25% - 2.5px));
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* Responsive background */
+      @media (max-width: 768px) {
+        .bg-slideshow {
+          gap: 5px;
+          padding: 5px;
+        }
+        
+        .bg-row {
+          gap: 5px;
+        }
+        
+        .bg-slide {
+          min-width: calc(50% - 3px);
+        }
+      }
+
+      title_h1 {
+        font-size: 3em;
+        color: #ffeaa7; /* Vàng sáng */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+        animation: pulse 1.5s infinite alternate; /* Hiệu ứng nhấp nháy cho tiêu đề */
+
+      }
+
+      .container {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.15
+        ); /* Hộp nội dung trong suốt */
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 800px;
+        width: 90%;
+        border: 3px solid rgba(255, 255, 255, 0.7);
+        position: relative;
+        z-index: 10;
+        backdrop-filter: blur(5px); /* Hiệu ứng làm mờ nền */
+        margin: 20px auto;
+        overflow: hidden; /* Ẩn các trái tim rơi ra ngoài container */
+      }
+
+      h1 {
+        font-size: 3em;
+        color: #ffeaa7; /* Vàng sáng */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+        animation: pulse 1.5s infinite alternate; /* Hiệu ứng nhấp nháy cho tiêu đề */
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.05);
+        }
+      }
+
+      #message {
+        font-size: 1.5em;
+        line-height: 1.6;
+        text-align: left;
+        white-space: pre-wrap; /* Giữ nguyên định dạng xuống dòng trong JS */
+        min-height: 200px; /* Đảm bảo chiều cao đủ khi message đang được gõ */
+      }
+
+      /* Responsive cho mobile */
+      @media (max-width: 768px) {
+        body {
+          padding: 10px 10px;
+        }
+
+        .container {
+          width: 95%;
+          padding: 20px;
+          margin: 10px auto;
+        }
+
+        h1 {
+          font-size: 2em;
+        }
+
+        #message {
+          font-size: 1.2em;
+          line-height: 1.5;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 15px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+        }
+
+        #message {
+          font-size: 1em;
+        }
+
+        .heart-emoji {
+          font-size: 1em;
+        }
+      }
+
+      .heart-emoji {
+        color: red;
+        font-size: 1.2em;
+        display: inline-block;
+        margin: 0 5px;
+        animation: beat 1s infinite;
+      }
+
+      @keyframes beat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* --- Hiệu ứng Mưa Tim (Heart Rain) --- */
+      .heart {
+        position: absolute;
+        top: -20px; /* Bắt đầu từ trên cùng của container */
+        color: #ff4757;
+        font-size: 20px;
+        pointer-events: none;
+        animation: fall linear infinite;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        opacity: 0.8;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(calc(100% + 100px)); /* Rơi xuống chiều cao của container */
+          opacity: 0;
+        }
+      }
+
+      /* Nút điều khiển nhạc */
+      .music-control {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        border: 3px solid #ff6b81;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .music-control:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .music-control.playing {
+        animation: rotate 3s linear infinite;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .music-control {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Slideshow -->
+    <div class="bg-slideshow">
+      <!-- Top row - scrolls left -->
+      <div class="bg-row bg-row-top">
+        <div class="bg-slide" style="background-image: url('images/DSC05769.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05807.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05897.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05769.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05807.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05897.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05769.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05807.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05897.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05769.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05807.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05897.png');"></div>
+      </div>
+      
+      <!-- Bottom row - scrolls right -->
+      <div class="bg-row bg-row-bottom">
+        <div class="bg-slide" style="background-image: url('images/DSC05901.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05916.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC06355.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05901.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05916.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC06355.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05901.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05916.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC06355.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05901.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC05916.png');"></div>
+        <div class="bg-slide" style="background-image: url('images/DSC06355.png');"></div>
+      </div>
+    </div>
+
+    <!-- Audio nền -->
+    <audio id="bgMusic" loop autoplay>
+      <source src="music/happy-birthday-celebration-happy-birthday-to-you-363137.mp3" type="audio/mpeg">
+      Trình duyệt của bạn không hỗ trợ phát nhạc.
+    </audio>
+
+    <!-- Nút điều khiển nhạc -->
+    <div class="music-control playing" id="musicControl" title="Bật/Tắt nhạc">
+      🎵
+    </div>
+
+    <div class="container">
+      <h1 class="title_h1">Chúc mừng sinh nhật Em Bé của anh❤️</h1>
+      <div id="message"></div>
+    </div>
+
+    <script>
+      const messageElement = document.getElementById("message");
+      const fullText = `Chúc mừng sinh nhật Em Bé của anh ${"❤️".repeat(
+        8
+      )}
+Xin chào cục cưng, công chúa nhỏ của Anh ❤️, Anh đố Em biết hôm nay là ngày gì á? 😉
+Vợ đoán chính xác rồi! Hôm nay là ngày sinh nhật của Em – ngày mà Em bé của anh được sinh ra đời, và ngày mà ba mẹ đã mang đến cho Anh một món quà to lớn, vô giá mà cả thế giới không gì có thể thay thế được. 🥰
+
+Tính ra, Hai đứa mình đã cùng nhau trải qua những mùa sinh nhật thật đáng nhớ, Từ lúc mình chưa có gì đến lúc mình có nhiều hơn một chút. 
+Anh luôn cảm thấy thật may mắn khi mỗi dịp sinh nhật đến, Anh đều được ở đây, bên cạnh Em để cùng nhau tận hưởng trọn vẹn những khoảnh khắc ý nghĩa nhất ❤️
+
+Sinh nhật đón thêm tuổi mới, Anh chúc Vợ yêu của Anh:
+🌟 Ngày càng xinh đẹp, tươi tắn, lúc nào cũng vui vẻ, yêu đời và yêu Anh.
+🌟 Chúc Bé yêu luôn vững bước trên con đường sự nghiệp, chinh phục mọi mục tiêu và ước mơ đã đặt ra.
+🌟 Chúc Cục dàng của anh luôn hạnh phúc bên gia đình và đặc biệt là luôn ở bên Anh nha em Bé của anh ❤️
+
+Anh hứa sẽ là chỗ dựa, sẽ không bao giờ làm Vợ buồn, dù chỉ là một chuyện nhỏ nhất, để Bé luôn tươi cười, luôn hạnh phúc và xứng đáng với những gì Em đã hy sinh, đã đánh đổi khi yêu Anh ❤️.
+
+Cục cưng của Anh phải ăn uống thật nhiều, giữ gìn sức khỏe để có thể yêu Anh và hạnh phúc bên Anh nghe chưa? ❤️
+Anh cảm ơn Em rất nhiều vì thời gian qua đã luôn ở bên, yêu thương và cho Anh cảm giác hạnh phúc tuyệt vời nhất ❤️.
+
+Anh hứa mãi mãi về sau sẽ không bao giờ có chuyện rời xa hay để Vợ một mình đâu. Vợ yêu cứ yên tâm, Anh sẽ chăm sóc cục cưng này suốt đời mãi mãi không rời xa luôn ❤️.
+
+Anh yêu Em, Công chúa duy nhất của Anh ❤️.
+Happy Birthday Vợ Yêu ${"❤️".repeat(60)}
+`;
+      let index = 0;
+      const typingSpeed = 50; // Tốc độ gõ chữ (miligiây)
+
+      // Hàm hiệu ứng máy đánh chữ
+      function typeWriter() {
+        if (index < fullText.length) {
+          // Thay thế ký tự tim trong quá trình gõ để thêm hiệu ứng nhấp nháy
+          const char = fullText.charAt(index);
+          if (char === "❤️") {
+            messageElement.innerHTML += `<span class="heart-emoji">❤️</span>`;
+          } else if (char === "\n") {
+            // Xử lý xuống dòng
+            messageElement.innerHTML += "<br>";
+          } else {
+            messageElement.innerHTML += char;
+          }
+          index++;
+          // Cuộn xuống để xem được chữ đang gõ
+          messageElement.scrollTop = messageElement.scrollHeight;
+          setTimeout(typeWriter, typingSpeed);
+        }
+      }
+
+      // Hàm tạo hiệu ứng mưa tim
+      function createHeart() {
+        const container = document.querySelector(".container");
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️"; // Hoặc có thể là '✨', '🎂'
+
+        // Vị trí và kích thước ngẫu nhiên (trong phạm vi container)
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Tốc độ rơi
+        heart.style.fontSize = Math.random() * 20 + 10 + "px"; // Kích thước
+        heart.style.opacity = Math.random();
+
+        container.appendChild(heart);
+
+        // Xóa tim sau khi rơi xuống
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      // Bắt đầu gõ chữ khi trang được tải
+      window.onload = () => {
+        typeWriter();
+        // Bắt đầu mưa tim sau khi lời chúc đang được gõ (hoặc ngay lập tức)
+        setInterval(createHeart, 200); // Tần suất tạo tim
+
+        // Xử lý nhạc nền
+        const bgMusic = document.getElementById("bgMusic");
+        const musicControl = document.getElementById("musicControl");
+
+        // Tự động phát nhạc (một số trình duyệt yêu cầu tương tác người dùng)
+        const playMusic = () => {
+          bgMusic.play().catch(e => {
+            console.log("Autoplay bị chặn, nhấn vào trang để phát nhạc");
+          });
+        };
+
+        // Thử phát nhạc ngay
+        playMusic();
+
+        // Nếu autoplay bị chặn, phát khi người dùng click vào trang
+        document.body.addEventListener('click', function initMusic() {
+          playMusic();
+          document.body.removeEventListener('click', initMusic);
+        }, { once: true });
+
+        // Điều khiển bật/tắt nhạc
+        musicControl.addEventListener("click", (e) => {
+          e.stopPropagation(); // Ngăn trigger event click của body
+          if (bgMusic.paused) {
+            bgMusic.play();
+            musicControl.classList.add("playing");
+            musicControl.innerHTML = "🎵";
+          } else {
+            bgMusic.pause();
+            musicControl.classList.remove("playing");
+            musicControl.innerHTML = "🔇";
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
